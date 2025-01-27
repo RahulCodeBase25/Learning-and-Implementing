@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Weather App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #87CEEB;
+            color: #fff;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            transition: background 0.5s;
+        }
+
+        header {
+            margin-bottom: 20px;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            font-size: 16px;
+            width: 70%;
+            max-width: 400px;
+            border: none;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #333;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+        .weather-info {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+        }
+
+        .error {
+            color: #ff9999;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Weather App</h1>
+        <p>Get the current weather of any city</p>
+    </header>
+
+    <main>
+        <input type="text" id="city" placeholder="Enter city name">
+        <button onclick="getWeather()">Get Weather</button>
+        
+        <div class="weather-info" id="weather-info">
+            <h2 id="location"></h2>
+            <p id="temperature"></p>
+            <p id="condition"></p>
+            <img id="icon" alt="Weather Icon"/>
+        </div>
+
+        <div class="error" id="error"></div>
+    </main>
+
+    <script>
+        const API_KEY = '6dedf7eb6fce26300f2e7e7cb2773a32'; // Replace with your OpenWeather API key
+
+        async function getWeather() {
+            const city = document.getElementById('city').value;
+            const weatherInfo = document.getElementById('weather-info');
+            const errorDiv = document.getElementById('error');
+
+            if (!city) {
+                errorDiv.textContent = 'Please enter a city name';
+                return;
+            }
+
+            weatherInfo.style.display = 'none';
+            errorDiv.textContent = '';
+
+            try {
+                const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${API_KEY}`);
+
+                if (!response.ok) {
+                    throw new Error('City not found');
+                }
+
+                const data = await response.json();
+                displayWeather(data);
+            } catch (error) {
+                errorDiv.textContent = error.message;
+            }
+        }
+
+        function displayWeather(data) {
+            const weatherInfo = document.getElementById('weather-info');
+            const location = document.getElementById('location');
+            const temperature = document.getElementById('temperature');
+            const condition = document.getElementById('condition');
+            const icon = document.getElementById('icon');
+
+            location.textContent = `${data.name}, ${data.sys.country}`;
+            temperature.textContent = `Temperature: ${data.main.temp}°C`;
+            condition.textContent = `Condition: ${data.weather[0].description}`;
+            icon.src = `http://openweathermap.org/img/wn/${data.weather[0].icon}.png`;
+
+            weatherInfo.style.display = 'block';
+
+            // Change background color based on temperature
+            const temp = data.main.temp;
+            document.body.style.background = temp > 30 ? '#FF5733' : temp > 20 ? '#FFC300' : '#87CEEB';
+        }
+    </script>
+</body>
+</html>

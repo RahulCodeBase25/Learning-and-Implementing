@@ -1,0 +1,180 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  background-color: black;
+  color: white;
+}
+
+/* Left box */
+.left {
+  width: 30vw;
+  padding: 10px;
+}
+
+.home ul li {
+  display: flex;
+  gap: 15px;
+  width: 15px;
+  list-style: none;
+  padding-top: 14px;
+  font-weight: 700;
+}
+
+.heading {
+  display: flex;
+  gap: 15px;
+  padding-top: 14px;
+  font-weight: 700;
+  align-items: center; /*Vertically center*/
+  font-size: medium;
+}
+
+.heading img {
+  width: 25px;
+}
+
+.library {
+  min-height: 75vh;
+  position: relative;
+}
+
+.footer {
+  display: flex;
+  font-size: 10px;
+  color: grey;
+  gap: 13px;
+  position: absolute;
+  bottom: 0;
+}
+
+.footer a {
+  color: grey;
+}
+
+/* Right box */
+.right {
+  width: 75vw;
+  margin: 16px 0;
+  position: relative;  /*bCZ YE RIGHT VALA DABBA PURA hai thats why i need to put position relative so mera play baar bhi niche hi rhe */
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(34, 34, 34);
+}
+
+.header > * {
+  /*Header ke andar jitne bhi direct elements*/
+  padding: 20px;
+}
+
+.spotifyPlaylist {
+  padding: 16px;
+}
+.cardContainer {
+  display: flex;
+  margin: 10px;
+  gap: 10px;
+  flex-wrap: wrap;
+  overflow-y: scroll;
+  max-height: 65vh;
+}
+
+.card {
+  width: 150px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #252525;
+  position: relative;
+}
+
+.card > * {
+  padding-top: 10px;
+}
+.card img {
+  width: 100%; /*Iska mtlab mera jo box bnega ye img uss box ka 100% legi width*/
+  object-fit: contain; /*or obj vo box ke hisab se apne aap ko contain kar lega*/
+}
+
+.play {
+  width: 40px; /* Slightly larger for visibility */
+  height: 40px;
+  background-color: #1fdf64; /* Maintain green background */
+  border-radius: 50%;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 125px;
+  right: 6px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1), 0px 1px 3px rgba(0, 0, 0, 0.06);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  opacity: 1;
+}
+
+.play:hover {
+  transform: scale(1.1); /* Slight enlargement */
+  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.15), 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.play-icon {
+  transition: transform 0.2s ease;
+}
+
+.play:hover .play-icon {
+  transform: scale(1.1); /* Icon effect on hover */
+}
+
+.buttons > *{
+    margin: 0 12px;
+
+}
+
+.signupbtn {
+  background-color:rgb(34, 34, 34); 
+  color:rgb(222, 215, 215);
+  font-weight: 700;
+  size: 30px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+.signupbtn:hover {
+  font-size: 17px;
+  color: white;
+}
+
+.loginbtn{
+    background-color: white;
+    border-radius: 21px;
+    color: black;
+    padding: 10px;
+    font-weight: 400;
+    width: 79px;
+    cursor: pointer;
+}
+.loginbtn:hover{
+    background-color: white;
+    border-radius: 21px;
+    font-weight: bold;
+}
+
+.playbar{
+    position:absolute;
+    bottom: 0;
+    background-color: #1fdf64;
+    width: 100%;
+    padding:12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

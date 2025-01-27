@@ -1,0 +1,202 @@
+/* Reset some default styles for consistency */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* General page styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f8ff;
+    color: #333;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: #3498db;
+}
+
+header p {
+    font-size: 1rem;
+    margin-top: 10px;
+    color: #555;
+}
+
+.search-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.search-section input {
+    padding: 10px;
+    font-size: 1rem;
+    margin-right: 10px;
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.search-section button {
+    padding: 10px 15px;
+    font-size: 1rem;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.search-section button:hover {
+    background-color: #2980b9;
+}
+
+/* Weather info */
+.weather-info {
+    text-align: center;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.weather-info.hidden {
+    display: none;
+}
+
+.weather-info h2 {
+    font-size: 1.8rem;
+    color: #3498db;
+}
+
+.weather-info .temp-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.weather-info #temperature {
+    font-size: 3rem;
+    color: #3498db;
+    margin-right: 10px;
+}
+
+.weather-info #icon {
+    width: 80px;
+}
+
+.weather-info p {
+    font-size: 1rem;
+    margin: 5px 0;
+    color: #555;
+}
+
+.weather-info #sunrise-sunset {
+    font-size: 1rem;
+    color: #555;
+    margin-top: 10px;
+}
+
+/* Forecast section */
+.forecast {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.forecast.hidden {
+    display: none;
+}
+
+.forecast h3 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #3498db;
+}
+
+.forecast-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    padding: 10px;
+}
+
+.forecast-item {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.forecast-item img {
+    width: 60px;
+    margin: 10px 0;
+}
+
+.forecast-item p {
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Error Message */
+.error {
+    color: red;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* History Section */
+.history {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.history h3 {
+    font-size: 1.5rem;
+    color: #3498db;
+}
+
+#history-list {
+    list-style-type: none;
+    margin-top: 10px;
+}
+
+#history-list li {
+    background-color: #e0f7fa;
+    margin: 5px;
+    padding: 8px;
+    border-radius: 5px;
+}
+
+.clear-history {
+    background-color: #ff5733;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.clear-history:hover {
+    background-color: #c94e2a;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 1rem;
+    color: #555;
+}
